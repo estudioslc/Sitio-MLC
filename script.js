@@ -20,9 +20,24 @@ if (navToggle && mainNav) {
 const WHATSAPP_NUMBER = '5493517872515'; // +54 9 351 787-2515
 
 const form = document.getElementById('contact-form');
-if (form) {
+const fallbackMessage = document.getElementById('form-fallback-message');
+const submitButton = document.getElementById('submit-contact-btn');
+const privacyCheckbox = form ? form.querySelector('input[name="privacy"]') : null;
+
+if (form && submitButton && privacyCheckbox) {
+  const toggleSubmitState = () => {
+    submitButton.disabled = !privacyCheckbox.checked;
+  };
+
+  toggleSubmitState();
+  privacyCheckbox.addEventListener('change', toggleSubmitState);
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    if (!privacyCheckbox.checked) {
+      return;
+    }
 
     const nombre = form.nombre.value.trim();
     const contacto = form.contacto.value.trim();
@@ -35,6 +50,10 @@ if (form) {
       `Situación: ${mensaje}`;
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(texto)}`;
-    window.open(url, '_blank', 'noopener');
+    const popup = window.open(url, '_blank', 'noopener');
+
+    if (!popup && fallbackMessage) {
+      fallbackMessage.classList.add('is-visible');
+    }
   });
 }

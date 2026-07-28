@@ -5,6 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Miguel López Cabada — Abogado Laboralista | Córdoba Capital</title>
 <meta name="description" content="Miguel López Cabada, abogado laboralista con 10 años de trayectoria en Córdoba Capital. Despidos, ART, trabajo no registrado y conflictos laborales.">
+<link rel="canonical" href="https://estudiolopezcabada.com.ar/">
+<meta property="og:title" content="Miguel López Cabada — Abogado Laboralista en Córdoba Capital">
+<meta property="og:description" content="Miguel López Cabada, abogado laboralista con 10 años de trayectoria en Córdoba Capital. Despidos, ART, trabajo no registrado y conflictos laborales.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://estudiolopezcabada.com.ar/">
+<meta property="og:image" content="https://estudiolopezcabada.com.ar/imagenes/optimizadas/MiguelByN.webp">
+<meta property="og:locale" content="es_AR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Miguel López Cabada — Abogado Laboralista en Córdoba Capital">
+<meta name="twitter:description" content="Miguel López Cabada, abogado laboralista con 10 años de trayectoria en Córdoba Capital. Despidos, ART, trabajo no registrado y conflictos laborales.">
+<meta name="twitter:image" content="https://estudiolopezcabada.com.ar/imagenes/optimizadas/MiguelByN.webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "Estudio Jurídico Miguel López Cabada",
+  "description": "Abogado laboralista en Córdoba Capital especializado en despidos, ART, trabajo no registrado y conflictos laborales.",
+  "url": "https://estudiolopezcabada.com.ar/",
+  "telephone": "+54 9 351 787-2515",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Arturo M. Bas 60",
+    "addressLocality": "Córdoba Capital",
+    "addressRegion": "Córdoba",
+    "addressCountry": "AR"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Córdoba Capital, Argentina"
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,72,400;0,72,500;0,72,600;1,72,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -43,7 +75,10 @@
 
     <div class="plaque" aria-hidden="false">
       <div class="plaque-shine"></div>
-      <span class="plaque-name">MIGUEL LÓPEZ&nbsp;CABADA</span>
+      <h1 class="plaque-name hero-h1">
+        Miguel López Cabada
+        <span class="sr-only">— Abogado Laboralista en Córdoba Capital</span>
+      </h1>
       <span class="plaque-role">A B O G A D O</span>
     </div>
 
@@ -91,7 +126,7 @@
     <aside class="about-aside">
       <div class="about-aside-card">
         <div class="about-visual">
-          <img class="about-photo" src="imagenes/optimizadas/MiguelByN.webp" alt="Miguel López Cabada">
+          <img class="about-photo" src="imagenes/optimizadas/MiguelByN.webp" alt="Miguel López Cabada, abogado laboralista en Córdoba Capital">
         </div>
         <div class="stamp-card">
           <div class="stamp-row">
@@ -211,7 +246,12 @@
           Contame tu situación
           <textarea name="mensaje" rows="4" required placeholder="Ej: me despidieron sin causa la semana pasada..."></textarea>
         </label>
-        <button type="submit" class="btn btn-primary btn-full">Enviar consulta por WhatsApp</button>
+        <label class="privacy-field">
+          <input type="checkbox" name="privacy" required>
+          <span>Acepto la <a href="privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a></span>
+        </label>
+        <p class="form-fallback-message" id="form-fallback-message" role="alert" aria-live="polite">¿No se abrió WhatsApp? Escribinos directo a mlopezcabada@gmail.com o llamanos al +54 9 351 787-2515</p>
+        <button type="submit" class="btn btn-primary btn-full" id="submit-contact-btn" disabled>Enviar consulta por WhatsApp</button>
       </form>
     </div>
 
@@ -247,6 +287,7 @@
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <span class="footer-brand">Miguel López Cabada</span>
+    <a class="footer-link" href="privacidad.html">Privacidad</a>
     <span class="footer-copy">2026&nbsp;&reg;</span>
   </div>
 </footer>
