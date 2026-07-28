@@ -204,11 +204,11 @@ p{ margin: 0 0 1em; }
   position:relative;
   min-height: 88vh;
   background: 
-    linear-gradient(180deg, rgba(8,13,23,0.8) 0%, rgba(17,24,33,0.8) 100%),
-    url('imagenes/Tribunales2.jfif');
+    linear-gradient(180deg, rgba(8,13,23,0.6) 0%, rgba(17,24,33,0.65) 100%),
+    url('imagenes/optimizadas/Tribunales2.webp');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
   color: var(--paper);
   padding: 130px 0 80px;
   overflow:hidden;
@@ -462,6 +462,10 @@ p{ margin: 0 0 1em; }
   .hero{ padding: 90px 0 60px; }
   .hero .plaque{ padding: 24px 20px; width: 100%; }
   .hero-lede{ margin-bottom: 28px; }
+}
+
+@media (min-width: 769px){
+  .hero{ background-attachment: fixed; }
 }
 
 @media (max-width: 480px){
