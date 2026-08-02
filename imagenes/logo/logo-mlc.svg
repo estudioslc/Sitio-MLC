@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" width="1440" height="400">
+  <style>
+    .wordmark-title {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 38px;
+      fill: #161F29;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+    .wordmark-subtitle {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      fill: #A9793E;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+  </style>
+  <!-- Logo Icon Symbol -->
+  <g transform="translate(10, 0)">
+    <path d="M 35 35 L 165 35 L 165 68 L 70 68 L 70 132 L 165 132 L 165 165 L 35 165 Z" fill="#161F29" />
+    <path d="M 88 82 L 118 82 L 118 118 L 148 118 L 148 148 L 88 148 Z" fill="#A9793E" />
+  </g>
+  <!-- Typographic Wordmark -->
+  <g transform="translate(220, 105)">
+    <text class="wordmark-title" x="0" y="0">Miguel López Cabada</text>
+    <text class="wordmark-subtitle" x="0" y="32">ESTUDIO JURÍDICO</text>
+  </g>
+</svg>
