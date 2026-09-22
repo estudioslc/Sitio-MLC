@@ -57,3 +57,25 @@ if (form && submitButton && privacyCheckbox) {
     }
   });
 }
+
+// Política de privacidad en un diálogo mediano.
+const privacyModal = document.getElementById('privacy-modal');
+const privacyLinks = document.querySelectorAll('[data-privacy-modal]');
+const closePrivacyButton = document.querySelector('[data-close-privacy]');
+
+if (privacyModal) {
+  privacyLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      privacyModal.showModal();
+    });
+  });
+
+  closePrivacyButton?.addEventListener('click', () => privacyModal.close());
+
+  privacyModal.addEventListener('click', (event) => {
+    if (event.target === privacyModal) {
+      privacyModal.close();
+    }
+  });
+}
