@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es-AR">
+<html lang="es-AR" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,6 +48,35 @@
 </head>
 <body>
 
+<!-- Recursos SVG compartidos: duotonos y logo de WhatsApp -->
+<svg class="svg-defs" aria-hidden="true" focusable="false">
+  <!-- Duotono tinta y papel (foto de fondo del hero) -->
+  <filter id="duotono-tinta" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values=".33 .33 .33 0 0  .33 .33 .33 0 0  .33 .33 .33 0 0  0 0 0 1 0"/>
+    <feComponentTransfer>
+      <feFuncR type="table" tableValues=".086 .961"/>
+      <feFuncG type="table" tableValues=".122 .945"/>
+      <feFuncB type="table" tableValues=".161 .910"/>
+    </feComponentTransfer>
+  </filter>
+  <!-- Duotono azul tinta de sello (retrato): sombras #0F2147, luces #F5F1E8, contraste ×1.3 -->
+  <filter id="duotono-sello" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values=".33 .33 .33 0 0  .33 .33 .33 0 0  .33 .33 .33 0 0  0 0 0 1 0"/>
+    <feComponentTransfer>
+      <feFuncR type="linear" slope="1.3" intercept="-.15"/>
+      <feFuncG type="linear" slope="1.3" intercept="-.15"/>
+      <feFuncB type="linear" slope="1.3" intercept="-.15"/>
+    </feComponentTransfer>
+    <feComponentTransfer>
+      <feFuncR type="table" tableValues=".059 .961"/>
+      <feFuncG type="table" tableValues=".129 .945"/>
+      <feFuncB type="table" tableValues=".278 .910"/>
+    </feComponentTransfer>
+  </filter>
+  <!-- Logo oficial de WhatsApp -->
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></symbol>
+</svg>
+
 <!-- HEADER -->
 <header class="site-header" id="top">
   <div class="wrap header-inner">
@@ -64,7 +93,7 @@
       <a href="#como-trabajo">Cómo trabajo</a>
       <a href="#contacto">Contacto</a>
     </nav>
-    <a class="nav-cta" href="https://wa.me/5493517872515" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="nav-cta" href="https://wa.me/5493517872515" target="_blank" rel="noopener"><svg class="wa-ico" aria-hidden="true"><use href="#wa"/></svg>WhatsApp</a>
     <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -73,36 +102,38 @@
 
 <!-- HERO -->
 <section class="hero" id="hero">
-  <div class="hero-frame" aria-hidden="true"></div>
+  <div class="hero-bg" id="hero-bg" aria-hidden="true"><div class="hero-bg-img"></div></div>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <canvas class="papeles" id="papeles-fondo" aria-hidden="true"></canvas>
   <div class="wrap hero-inner">
     <p class="eyebrow">Abogado laboralista</p>
 
-    <div class="plaque" aria-hidden="false">
-      <div class="plaque-shine"></div>
-      <h1 class="plaque-name hero-h1">
+    <div class="plaque">
+      <h1 class="plaque-name">
         Miguel López Cabada
         <span class="sr-only">— Abogado Laboralista en Córdoba Capital</span>
       </h1>
-      <span class="plaque-role">A B O G A D O</span>
+      <span class="plaque-role" aria-hidden="true">ABOGADO</span>
     </div>
 
     <p class="hero-lede">Diez años defendiendo trabajadores en Córdoba Capital ante despidos, accidentes laborales y trabajo no registrado.</p>
 
     <div class="hero-actions">
-      <a class="btn btn-primary" href="https://wa.me/5493517872515" target="_blank" rel="noopener">Consultá por WhatsApp</a>
+      <a class="btn btn-primary" href="https://wa.me/5493517872515" target="_blank" rel="noopener"><svg class="wa-ico" aria-hidden="true"><use href="#wa"/></svg>Consultá por WhatsApp <span class="arr" aria-hidden="true">→</span></a>
       <a class="btn btn-ghost" href="#areas">Ver áreas de práctica</a>
     </div>
   </div>
+  <canvas class="papeles papeles-frente" id="papeles-frente" aria-hidden="true"></canvas>
 </section>
 
 <!-- SOBRE MÍ -->
 <section class="section section-about" id="sobre-mi">
   <div class="wrap about-grid">
-    <div class="about-copy">
+    <div class="about-copy reveal">
       <p class="section-tag">Sobre mí</p>
       <h2>Un abogado laboralista, enfocado en tu situación.</h2>
       <p class="body-text">
-        Soy Miguel López Cabada, abogado formado en derecho laboral con diez años de trayectoria representando trabajadores en Córdoba Capital. Mi trabajo es traducir situaciones injustas &mdash;un despido sin causa, un accidente laboral mal cubierto, un empleo que nunca se registró&mdash; en estrategias legales concretas que protejan lo que te corresponde.
+        Soy Miguel López Cabada Leonardi, abogado formado en derecho laboral con diez años de trayectoria representando trabajadores en Córdoba Capital. Mi trabajo es traducir situaciones injustas &mdash;un despido sin causa, un accidente laboral mal cubierto, un empleo que nunca se registró&mdash; en estrategias legales concretas que protejan lo que te corresponde.
       </p>
       <p class="body-text">
         No trabajo con respuestas genéricas. Cada consulta se analiza en profundidad antes de definir un camino, y te acompaño en cada etapa con información clara y disponibilidad real.
@@ -127,22 +158,24 @@
         </p>
       </div>
     </div>
-    <aside class="about-aside">
-      <div class="about-aside-card">
-        <div class="about-visual">
-          <img class="about-photo" src="imagenes/optimizadas/MiguelByN.webp" alt="Miguel López Cabada, abogado laboralista en Córdoba Capital">
+    <aside class="about-aside" id="about-aside">
+      <div class="photo" id="photo">
+        <div class="photo-move" id="photo-move">
+          <img class="duo" src="imagenes/optimizadas/MiguelByN.webp" alt="Miguel López Cabada, abogado laboralista en Córdoba Capital" width="911" height="1726">
+          <img class="orig" src="imagenes/optimizadas/MiguelByN.webp" alt="" aria-hidden="true" width="911" height="1726">
         </div>
-        <div class="stamp-card">
-          <div class="stamp-row">
-            <span class="stamp-num">10</span>
-            <span class="stamp-label">años de<br>ejercicio profesional</span>
-          </div>
-          <hr class="brass-rule">
-          <div class="stamp-line"><span class="stamp-key">Materia</span><span class="stamp-val">Derecho laboral</span></div>
-          <div class="stamp-line"><span class="stamp-key">Sede</span><span class="stamp-val">Córdoba Capital</span></div>
-          <div class="stamp-line"><span class="stamp-key">Matrícula</span><span class="stamp-val">1-40542</span></div>
-          <div class="stamp-line"><span class="stamp-key">MF</span><span class="stamp-val">T°508 F°319</span></div>
+        <div class="photo-caption" aria-hidden="true"><span>Mat. 1-40542</span><span>Córdoba</span></div>
+      </div>
+      <div class="stamp-card reveal" id="stamp-card">
+        <div class="stamp-row">
+          <span class="stamp-num" id="stamp-num">10</span>
+          <span class="stamp-label">años de<br>ejercicio profesional</span>
         </div>
+        <hr class="rule">
+        <div class="stamp-line"><span class="stamp-key">Materia</span><span class="stamp-val">Derecho laboral</span></div>
+        <div class="stamp-line"><span class="stamp-key">Sede</span><span class="stamp-val">Córdoba Capital</span></div>
+        <div class="stamp-line"><span class="stamp-key">Matrícula</span><span class="stamp-val">1-40542</span></div>
+        <div class="stamp-line"><span class="stamp-key">MF</span><span class="stamp-val">T°508 F°319</span></div>
       </div>
     </aside>
   </div>
@@ -155,7 +188,7 @@
     <h2>Cuatro frentes, un mismo criterio: defender al trabajador.</h2>
 
     <div class="cards-grid">
-      <article class="practice-card">
+      <article class="practice-card reveal">
         <span class="practice-icon" aria-hidden="true">
           <svg viewBox="0 0 40 40" fill="none"><path d="M8 16h24l-2 18H10L8 16Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 16v-4a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="1.6"/></svg>
         </span>
@@ -163,7 +196,7 @@
         <p>Cálculo de indemnizaciones, negociación y reclamo judicial ante despidos sin causa, discriminatorios o mal notificados.</p>
       </article>
 
-      <article class="practice-card">
+      <article class="practice-card reveal">
         <span class="practice-icon" aria-hidden="true">
           <svg viewBox="0 0 40 40" fill="none"><path d="M20 6 8 11v9c0 8 5 13.5 12 14 7-.5 12-6 12-14v-9L20 6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M20 15v10M15 20h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
         </span>
@@ -171,7 +204,7 @@
         <p>Reclamos por incapacidad laboral, rechazos de ART y cobertura insuficiente frente a accidentes o enfermedades profesionales.</p>
       </article>
 
-      <article class="practice-card">
+      <article class="practice-card reveal">
         <span class="practice-icon" aria-hidden="true">
           <svg viewBox="0 0 40 40" fill="none"><path d="M6 30h28M11 30V17l-4 4M11 17l6-6 6 6M17 11v6M29 30V17l4 4M29 17l-6-6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg>
         </span>
@@ -179,7 +212,7 @@
         <p>Regularización de la relación laboral y reclamo de las diferencias salariales y previsionales del período no declarado.</p>
       </article>
 
-      <article class="practice-card">
+      <article class="practice-card reveal">
         <span class="practice-icon" aria-hidden="true">
           <svg viewBox="0 0 40 40" fill="none"><path d="M20 7v6M9 13l22 0M9 13l-4 9h8l-4-9ZM31 13l-4 9h8l-4-9ZM13 33h14M20 24v9" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg>
         </span>
@@ -197,28 +230,28 @@
     <h2>Un proceso claro, de la primera consulta a la resolución.</h2>
 
     <ol class="timeline">
-      <li class="timeline-step">
+      <li class="timeline-step reveal">
         <span class="timeline-num">1</span>
         <div>
           <h3>Consulta inicial</h3>
           <p>Escuchamos tu situación y evaluamos si existe un reclamo viable, sin tecnicismos ni promesas vacías.</p>
         </div>
       </li>
-      <li class="timeline-step">
+      <li class="timeline-step reveal">
         <span class="timeline-num">2</span>
         <div>
           <h3>Análisis del caso</h3>
           <p>Revisamos documentación, plazos y respaldo legal de tu situación para definir la mejor estrategia.</p>
         </div>
       </li>
-      <li class="timeline-step">
+      <li class="timeline-step reveal">
         <span class="timeline-num">3</span>
         <div>
           <h3>Estrategia y negociación</h3>
           <p>Buscamos la vía más eficaz: negociación directa, conciliación o inicio de acciones judiciales según el caso.</p>
         </div>
       </li>
-      <li class="timeline-step">
+      <li class="timeline-step reveal">
         <span class="timeline-num">4</span>
         <div>
           <h3>Acompañamiento constante</h3>
@@ -232,9 +265,9 @@
 <!-- CONTACTO -->
 <section class="section section-dark" id="contacto">
   <div class="wrap two-col">
-    <div class="col-main">
-      <p class="section-tag section-tag-light">Contacto</p>
-      <h2 class="light-h2">Tenés una consulta laboral?</h2>
+    <div class="col-main reveal">
+      <p class="section-tag">Contacto</p>
+      <h2>Tenés una consulta laboral?</h2>
       <p class="body-text light-text">Escribime para agendar una cita presencial o consultame brevemente tu caso por WhatsApp.</p>
 
       <form class="contact-form" id="contact-form">
@@ -255,33 +288,27 @@
           <span>Acepto la <a href="#privacy-modal" data-privacy-modal>Política de Privacidad</a></span>
         </label>
         <p class="form-fallback-message" id="form-fallback-message" role="alert" aria-live="polite">¿No se abrió WhatsApp? Escribinos directo a mlopezcabada@gmail.com o llamanos al +54 9 351 787-2515</p>
-        <button type="submit" class="btn btn-primary btn-full" id="submit-contact-btn" disabled>Enviar consulta por WhatsApp</button>
+        <button type="submit" class="btn btn-primary btn-full" id="submit-contact-btn" disabled><svg class="wa-ico" aria-hidden="true"><use href="#wa"/></svg>Enviar consulta por WhatsApp <span class="arr" aria-hidden="true">→</span></button>
       </form>
     </div>
 
-    <div class="col-side">
-      <div class="stamp-card stamp-card-dark">
-        <p class="stamp-title">Contacto directo</p>
+    <div class="col-side reveal">
+      <div class="contact-card">
+        <p class="section-tag">Contacto directo</p>
         <a class="contact-line" href="https://wa.me/5493517872515" target="_blank" rel="noopener">
-          <span class="contact-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M20 12a8 8 0 1 1-3.6-6.7L20 4l-1.2 3.9A8 8 0 0 1 20 12Z" stroke="currentColor" stroke-width="1.5"/><path d="M8.5 9c.3 2.6 2.4 4.7 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </span>
+          <svg class="wa-ico" aria-hidden="true"><use href="#wa"/></svg>
           +54 9 351 787-2515
         </a>
-        <hr class="brass-rule">
-        <p class="stamp-cities">
-          <span class="location-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s6-5.7 6-11a6 6 0 1 0-12 0c0 5.3 6 11 6 11Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.2" stroke="currentColor" stroke-width="1.5"/></svg>
-          </span>
+        <hr class="rule">
+        <p class="contact-place">
+          <svg class="location-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s6-5.7 6-11a6 6 0 1 0-12 0c0 5.3 6 11 6 11Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.2" stroke="currentColor" stroke-width="1.5"/></svg>
           Arturo M. Bas 60, planta baja, Of 2, Córdoba Capital
         </p>
-        <p class="stamp-cities">
-          <span class="location-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s6-5.7 6-11a6 6 0 1 0-12 0c0 5.3 6 11 6 11Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.2" stroke="currentColor" stroke-width="1.5"/></svg>
-          </span>
+        <p class="contact-place">
+          <svg class="location-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s6-5.7 6-11a6 6 0 1 0-12 0c0 5.3 6 11 6 11Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.2" stroke="currentColor" stroke-width="1.5"/></svg>
           Barrio Manantiales 1, Córdoba Capital
         </p>
-        <p class="stamp-cities">Agendá tu cita presencial</p>
+        <p class="contact-place">Agendá tu cita presencial</p>
       </div>
     </div>
   </div>
@@ -314,7 +341,7 @@
 </dialog>
 
 <a class="whatsapp-float" href="https://wa.me/5493517872515" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
-  <svg viewBox="0 0 24 24" fill="none"><path d="M20 12a8 8 0 1 1-3.6-6.7L20 4l-1.2 3.9A8 8 0 0 1 20 12Z" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 9c.3 2.6 2.4 4.7 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+  <svg aria-hidden="true"><use href="#wa"/></svg>
 </a>
 
 <script src="script.js"></script>
