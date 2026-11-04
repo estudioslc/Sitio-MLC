@@ -2,6 +2,8 @@
 
 Sitio estático de una sola página (`index.html`, `styles.css`, `script.js`), publicado con GitHub Pages en estudiolopezcabada.com.ar. Hacer push a `main` publica el sitio en vivo.
 
+**Caché:** GitHub Pages hace que los navegadores guarden CSS y JS durante 4 horas, pero el HTML sólo 10 minutos. Cada vez que cambien `styles.css` o `script.js`, actualizar el `?v=` con que se cargan en `index.html` (usar la fecha, p. ej. `?v=20261104`; si ya se usó ese día, agregar `b`, `c`…). Si no, los visitantes ven el HTML nuevo con el CSS viejo.
+
 Estas reglas de diseño aplican a **cualquier** cambio visual. Ante la duda, mantener lo existente antes que inventar algo nuevo.
 
 ## Dirección visual
