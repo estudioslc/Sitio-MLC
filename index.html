@@ -44,22 +44,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,72,400;0,72,500;0,72,600;1,72,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261104">
+<link rel="stylesheet" href="styles.css?v=20261105">
 </head>
 <body>
 
 <!-- Recursos SVG compartidos: duotonos y logo de WhatsApp -->
 <svg class="svg-defs" aria-hidden="true" focusable="false">
-  <!-- Duotono tinta y papel (foto de fondo del hero) -->
+  <!-- Duotono azul oscuro y papel (foto de fondo del hero) -->
   <filter id="duotono-tinta" color-interpolation-filters="sRGB">
     <feColorMatrix type="matrix" values=".33 .33 .33 0 0  .33 .33 .33 0 0  .33 .33 .33 0 0  0 0 0 1 0"/>
     <feComponentTransfer>
-      <feFuncR type="table" tableValues=".086 .961"/>
-      <feFuncG type="table" tableValues=".122 .945"/>
-      <feFuncB type="table" tableValues=".161 .910"/>
+      <feFuncR type="table" tableValues=".118 .965"/>
+      <feFuncG type="table" tableValues=".227 .969"/>
+      <feFuncB type="table" tableValues=".388 .957"/>
     </feComponentTransfer>
   </filter>
-  <!-- Duotono azul tinta de sello (retrato): sombras #0F2147, luces #F5F1E8, contraste ×1.3 -->
+  <!-- Duotono azul (retrato): sombras #1B3A66, luces #F6F7F4, contraste ×1.3 -->
   <filter id="duotono-sello" color-interpolation-filters="sRGB">
     <feColorMatrix type="matrix" values=".33 .33 .33 0 0  .33 .33 .33 0 0  .33 .33 .33 0 0  0 0 0 1 0"/>
     <feComponentTransfer>
@@ -68,9 +68,23 @@
       <feFuncB type="linear" slope="1.3" intercept="-.15"/>
     </feComponentTransfer>
     <feComponentTransfer>
-      <feFuncR type="table" tableValues=".059 .961"/>
-      <feFuncG type="table" tableValues=".129 .945"/>
-      <feFuncB type="table" tableValues=".278 .910"/>
+      <feFuncR type="table" tableValues=".106 .965"/>
+      <feFuncG type="table" tableValues=".227 .969"/>
+      <feFuncB type="table" tableValues=".400 .957"/>
+    </feComponentTransfer>
+  </filter>
+  <!-- Duotono bordó (bucle del retrato): sombras #4A161C, luces #F6F2ED, contraste ×1.3 -->
+  <filter id="duotono-bordo" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values=".33 .33 .33 0 0  .33 .33 .33 0 0  .33 .33 .33 0 0  0 0 0 1 0"/>
+    <feComponentTransfer>
+      <feFuncR type="linear" slope="1.3" intercept="-.15"/>
+      <feFuncG type="linear" slope="1.3" intercept="-.15"/>
+      <feFuncB type="linear" slope="1.3" intercept="-.15"/>
+    </feComponentTransfer>
+    <feComponentTransfer>
+      <feFuncR type="table" tableValues=".290 .965"/>
+      <feFuncG type="table" tableValues=".086 .949"/>
+      <feFuncB type="table" tableValues=".110 .929"/>
     </feComponentTransfer>
   </filter>
   <!-- Logo oficial de WhatsApp -->
@@ -162,7 +176,7 @@
       <div class="photo" id="photo">
         <div class="photo-move" id="photo-move">
           <img class="duo" src="imagenes/optimizadas/MiguelByN.webp" alt="Miguel López Cabada, abogado laboralista en Córdoba Capital" width="911" height="1726">
-          <img class="orig" src="imagenes/optimizadas/MiguelByN.webp" alt="" aria-hidden="true" width="911" height="1726">
+          <img class="duo-alt" src="imagenes/optimizadas/MiguelByN.webp" alt="" aria-hidden="true" width="911" height="1726">
         </div>
         <div class="photo-caption" aria-hidden="true"><span>Mat. 1-40542</span><span>Córdoba</span></div>
       </div>
@@ -263,12 +277,12 @@
 </section>
 
 <!-- CONTACTO -->
-<section class="section section-dark" id="contacto">
+<section class="section section-contact" id="contacto">
   <div class="wrap two-col">
     <div class="col-main reveal">
       <p class="section-tag">Contacto</p>
       <h2>Tenés una consulta laboral?</h2>
-      <p class="body-text light-text">Escribime para agendar una cita presencial o consultame brevemente tu caso por WhatsApp.</p>
+      <p class="body-text">Escribime para agendar una cita presencial o consultame brevemente tu caso por WhatsApp.</p>
 
       <form class="contact-form" id="contact-form">
         <label>
@@ -344,6 +358,6 @@
   <svg width="30" height="30" aria-hidden="true"><use href="#wa"/></svg>
 </a>
 
-<script src="script.js?v=20261104"></script>
+<script src="script.js?v=20261105"></script>
 </body>
 </html>

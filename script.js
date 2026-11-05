@@ -70,6 +70,7 @@ if (!reduceMotion) {
   const rnd = (a, b) => a + Math.random() * (b - a);
   let W = 0, H = 0, lastW = 0, parts = [];
   let mx = -9999, my = -9999, visible = true;
+  const paperColor = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
 
   function make(initial) {
     const z = Math.random();            // profundidad: 0 lejos, 1 cerca
@@ -124,14 +125,13 @@ if (!reduceMotion) {
 
   function draw(ctx, p) {
     const c = Math.cos(p.flip);
-    const light = (205 + Math.abs(c) * 45) | 0;   // se aclara al quedar de frente
     ctx.save();
     ctx.translate(p.x, p.y);
     ctx.rotate(p.rot);
     ctx.scale(1, Math.max(0.08, Math.abs(c)));
     ctx.globalAlpha = 0.25 + p.z * 0.6;
-    ctx.fillStyle = `rgb(${light},${light - 5},${light - 16})`;
-    if (p.front) { ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 6; }
+    ctx.fillStyle = paperColor;
+    if (p.front) { ctx.shadowColor = 'rgba(0,0,0,.12)'; ctx.shadowBlur = 6; }
     ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
     ctx.restore();
   }
